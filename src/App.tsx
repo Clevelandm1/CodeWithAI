@@ -1,11 +1,11 @@
 import './App.css'
+import FadeScreen from './components/FadeScreen'
 
 function App() {
   return (
-    <>
-      <h1 className='text-5xl'>Cleveland Martin IV</h1>
-      <text>There will be stuff here...</text>
-    </>
+    <div>
+      <FadeScreen />
+    </div>
   )
 }
 
