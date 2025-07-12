@@ -28,12 +28,19 @@ const FadeScreen = () => {
   if (fadeTextFromBlack && !fadeTextToBlack) textColor = '#fff'
   if (fadeTextToBlack) textColor = '#000'
 
-  // Position and animate the text
-  const basePosition =
+  // Main text position
+  const baseMainPosition =
     'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center'
-  const topLeftPosition =
+  const topLeftMainPosition =
     'fixed left-8 top-8 translate-x-0 translate-y-0 flex flex-col items-start'
-  const positionClass = fadeTextToBlack ? topLeftPosition : basePosition
+  const mainPositionClass = fadeTextToBlack ? topLeftMainPosition : baseMainPosition
+
+  // Subtitle position (independent transition)
+  const baseSubtitlePosition =
+    'fixed left-1/2 top-[calc(50%+3.5rem)] -translate-x-1/2 flex items-center' // 3.5rem below main text
+  const topLeftSubtitlePosition =
+    'fixed left-8 top-[calc(2rem+3.5rem)] translate-x-0 flex items-start' // 3.5rem below top-8
+  const subtitlePositionClass = fadeTextToBlack ? topLeftSubtitlePosition : baseSubtitlePosition
 
   return (
     <>
@@ -45,19 +52,19 @@ const FadeScreen = () => {
           ${fadeScreen ? 'opacity-0 pointer-events-none' : 'opacity-100'}
         `}
       />
-      {/* Animated text */}
+      {/* Main text */}
       <div
         className={`
           z-60 pointer-events-none
           transition-all duration-[1200ms] ease-in-out
-          ${positionClass}
+          ${mainPositionClass}
         `}
         style={{
           transition: 'color 1.2s, all 1.2s',
         }}
       >
         <h1
-          className="text-5xl font-bold"
+          className="text-[40px] font-bold"
           style={{
             color: textColor,
             transition: 'color 1.2s, all 1.2s',
@@ -65,9 +72,21 @@ const FadeScreen = () => {
         >
           Cleveland Martin IV
         </h1>
+      </div>
+      {/* Subtitle text */}
+      <div
+        className={`
+          z-60 pointer-events-none
+          transition-all duration-[1200ms] ease-in-out
+          ${subtitlePositionClass}
+        `}
+        style={{
+          transition: 'color 1.2s, all 1.2s',
+        }}
+      >
         <span
           className={`
-            text-lg mt-2
+            text-lg
             transition-opacity duration-700
             ${showSubtitle ? 'opacity-100' : 'opacity-0'}
           `}
