@@ -113,6 +113,7 @@ const FadeOutMotion = ({ isSmallScreen }: FadeOutMotionProps) => {
           fontStyle: 'italic',
           marginTop: '0.63em',
           color: '#999', // medium gray
+          overflow: 'visible',
         }}
       >
         Built with Copilot
