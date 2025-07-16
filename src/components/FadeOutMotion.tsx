@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from "motion/react"
 
 const FadeOutMotion = () => {
@@ -77,6 +77,7 @@ const FadeOutMotion = () => {
           y: { duration: 0.8, delay: 2.5 },
           color: { duration: 1, delay: 2.5 },
         }}
+        // @ts-ignore
         style={textStyle}
       >
         Cleveland Martin IV
@@ -108,6 +109,7 @@ const FadeOutMotion = () => {
           y: { duration: 0.8, delay: 2.5 },
           color: { duration: 1, delay: 2.5 },
         }}
+        // @ts-ignore
         style={{
           ...textStyle,
           fontSize: isSmallScreen
