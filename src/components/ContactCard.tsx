@@ -51,7 +51,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ isSmallScreen, imageSrc }) =>
       <div
         style={{
           background: '#fff',
-          width: squareSize,
+          width: isSmallScreen ? '93vw' : squareSize,
           minHeight: squareSize,
           flexShrink: 0,
           display: 'flex',
