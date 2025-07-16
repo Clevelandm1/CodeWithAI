@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react'
 import { motion } from "motion/react"
 
-const FadeOutMotion = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
+type FadeOutMotionProps = {
+  isSmallScreen: boolean
+}
 
-  useEffect(() => {
-    const checkScreen = () => setIsSmallScreen(window.innerWidth < 600);
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
-  }, []);
-
+const FadeOutMotion = ({ isSmallScreen }: FadeOutMotionProps) => {
   const textStyle = isSmallScreen
     ? {
-        fontSize: 'clamp(16px, 6vw, 28px)',
+        fontSize: 'clamp(16px, 7vw, 28px)',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         maxWidth: '90vw',
@@ -94,10 +88,10 @@ const FadeOutMotion = () => {
         }}
         animate={{
           left: 32,
-          top: isSmallScreen ? 53 : 64,
+          top: isSmallScreen ? 53 : 68,
           x: '2.5%',
           y: 0,
-          color: '#000',
+          color: '#999', // <-- change this from '#000' to '#666'
           opacity: 1,
           position: 'fixed',
         }}
@@ -116,7 +110,9 @@ const FadeOutMotion = () => {
             ? 'clamp(12px, 4vw, 14px)'
             : 'clamp(14px, 3vw, 18px)',
           fontWeight: 'normal',
-          marginTop: '0.5em',
+          fontStyle: 'italic',
+          marginTop: '0.63em',
+          color: '#999', // medium gray
         }}
       >
         Built with Copilot
