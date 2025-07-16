@@ -1,10 +1,10 @@
 import './App.css'
-import FadeScreenAlt from './components/FadeScreenAlt'
+import FadeOutMotion from './components/FadeOutMotion'
 
 function App() {
   return (
     <div>
-      <FadeScreenAlt />
+      <FadeOutMotion />
     </div>
   )
 }
